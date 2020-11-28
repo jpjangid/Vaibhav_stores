@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- CSRF Token -->
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" rel="stylesheet">
+      <link href="<?php echo url('/'); ?>/static/css/primary-style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+      <style>
+		@media (min-width: 992px)
+		.d-lg-block {
+		display: block!important;
+		}
+		.whats-app-icon.d-lg-block .nav-link {
+		padding: 0;
+		right: 20px;
+		}
+		.whats-app-icon .nav-link {
+		position: fixed;
+		bottom: 30px;
+		right: 0;
+		z-index: 999;
+		}
+		.nav-link {
+		display: block;
+
+		}
+		
+	.whats-app-icon.d-lg-block .nav-link img {
+	position: relative;
+	z-index: 1;
+	}
+	
+	.whats-app span {
+	background: #7d8668;
+	color: #fff;
+	padding: 6px 18px 6px 30px;
+	border-radius: 0 50px 50px 0;
+	margin-left: -20px;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	}
+		
+	  .error{
+		  color:red;
+	  }
+        .ui-category {
+          font-weight: bold;
+          padding: .2em .0em;
+          margin: .8em 0 .2em;
+          line-height: 1;
+          color: #000;
+        }
+        .ui-subcategory {
+          font-weight: bold;
+          padding: .2em .0em;
+          margin: .8em 0 .2em;
+          line-height: 1;
+          color: #2e2e2e;
+          padding-left: .4em;
+        }
+        .ui-menu-item:not(.ui-category):not(.ui-subcategory){
+            padding-left: .8em;
+        }
+		.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front{
+			max-height: 280px;
+            overflow-y: auto;
+            overflow-x: hidden;
+		}
+        /* .typeahead .tt-dropdown-menu {
+            max-height: 150px;
+            overflow-y: auto;
+        } */
+        #ui-id-1{
+            z-index: 1000;
+        }
+        .ecommerce-menu--item .dropDownMenu form button {
+            padding: 11px 12px;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 23px;
+            font-weight: 500;
+            color: #2e2e2e;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            background-color: transparent;
+            width: 100%;
+            text-align: left;
+        }
+        .ecommerce-menu--item .dropDownMenu form
+        {
+            border: none;
+        }
+
+        </style>
+      @yield ('header-style')
+      <title>{{$page_title}}</title>
+	  <meta name="description" content="{{@$meta_description}}">
+	  <meta name="keywords" content="{{@$meta_keyword}}">
+      <link rel="shortcut icon" href="<?php echo url('/'); ?>/static/images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="<?php echo url('/'); ?>/static/images/favicon.ico" type="image/x-icon">
+		
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T7VH5K6');</script>
+<!-- End Google Tag Manager -->
+<meta name="google-site-verification" content="k3hWLSzcmEk3cepmLJ1K6IfFmgF20j3_M3cewZj4A88" />
+<meta property="og:image" content="{{@$meta_image}}">
+
+		
+    </head>
+<body class="{{$body_class}}">
+<?php
+    use \App\Http\Controllers\HomeController;
+
+    $cartItem = HomeController::cartItem();
+    $headerCategories = HomeController::headerCategories();
+
+    ?>
+   <header class="header-wrapper">
+      <div class="container">
+         <div class="row">
+            <div class="header-bar--top">
+               <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+               <div class="col-5 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                  <div class="logo-wrap">
+                     <a href="<?php echo url('/'); ?>"><img src="<?php echo url('/'); ?>/static/images/logo.png" alt="" title=""/></a>
+                  </div>
+               </div>
+               <div class="col-4 col-sm-5 col-md-4 col-lg-4 col-xl-4">
+                  <div class="ecommerce-menu--wrap">
+                  	<div class="ecommerce-menu--item">
+                        <ul class="navbar-nav">
+                           <li class="nav-item item-dropdown">
+                              <ul class="dropDownMenu">
+                                 <li>
+                                    <a href="javascript:void(0)">
+                                       <span class="desktop-text">Account</span>
+                                       <span class="mobile-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    </a>
+                                    <ul>
+                                       <li><a href="{{ route('users.profile') }}">My Profile</a></li>
+                                       <li><a href="{{ route('orders.list') }}">Order History</a></li>
+                                       @if (auth()->user())
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button type="submmit">Log Out</button>
+                                            </form>
+                                        </li>
+                                       @else
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                       @endif
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                    	</div>
+                     <div class="ecommerce-menu--item">
+                        <button type="button" class="btn search" data-toggle="modal" data-target="#search">
+                           <span class="desktop-text">Search</span>
+                           <span class="mobile-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="searchLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="searchLabel">What are you searching for?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                              <form id="search-form">
+                                    <input type="text" name="search" class="typeahead" placeholder="Your search term...">
+                                    <button type="submit" id="search-submit" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                 </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="ecommerce-menu--item">
+                        <a href="{{ route('cart') }}" class="cart-notify">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="count cartItem">{{$cartItem}}</span></a>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-3 col-sm-4 col-md-12 col-lg-12 col-xl-12">
+                  <nav class="navbar sticky-navbar navbar-expand-lg navbar-dark bg-dark">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                           <li class="nav-item">
+                              <a class="nav-link" href="{{ route('home') }}">Home </a>
+                           </li>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Stores
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <div class="dropdown-item--wrap">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                       <div class="tab-pane well active in active" id="category-01">
+                                          <div class="menu-tab--grids">
+                                             <!-- Tab Items -->
+                                             @foreach ($headerCategories as $headerCategory)
+                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                <div class="menu-tab--item">
+                                                   <a href="{{route('products.category-list',[$headerCategory->slug])}}">
+                                                      <div class="menu-tab--image"><img src="{{ asset('storage/category/'.$headerCategory->image) }}" alt=""/></div>
+                                                      <h5>{{$headerCategory->name}}</h5>
+                                                   </a>
+                                                </div>
+                                             </div>
+                                             @endforeach
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="nav-item">
+                            <a class="nav-link" href="{{route('enquiry.care')}}">Care</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('enquiry.xpress')}}">Xpress</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('event.academy')}}">Academy</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('enquiry.plus')}}">Plus</a>
+                          </li>
+						  <li class="nav-item">
+                            <a class="nav-link" href="{{url('/brands') }}">Brands</a>
+                          </li>
+						   <li class="nav-item d-block d-lg-none">
+							<a class="nav-link" href="{{url('/v/contact-us') }}">Contact Us</a>
+						  </li>
+                        </ul>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <div class="cartItemMessage"><p></p></div>
+   @yield ('content')
+   <!-- Modal for Add To Query -->
+   <div class="modal fade" id="add-query" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Product To Your Query</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <form id="queryForm" name="queryForm">
+            <div class="modal-body">
+                <p style="display:none; color:#000;" id="enquiry-error" class="alert alert-danger" role="alert">Please Fill all input.</p>
+                <div class="form-group">
+                    <label for="query-name">Name *</label>
+                    <input type="text" class="form-control" id="query-name" aria-describedby="name" placeholder="Enter Name" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="query-email">Email address *</label>
+                    <input type="email" class="form-control" id="query-email" name="query_email" aria-describedby="emailHelp" placeholder="Enter email" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="query-mobile">Mobile No. *</label>
+                    <input type="text" class="form-control" id="query-mobile" name="query_mobile" aria-describedby="mobile" placeholder="Enter Mobile No.">
+                </div>
+                <div class="form-group">
+                    <label for="message-for-query">Message *</label>
+                    <textarea class="form-control" id="query-message" rows="3" required="required"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger queryToEnquiry">Send Enquiry</button>
+            </div>
+        </form>
+        <div class="modal-body" id="enquiry-result" style="display:none;">
+            <p style="color:#000;" class="alert alert-success" role="alert"></p>
+        </div>
+    </div>
+    </div>
+</div>
+   
+   <footer class="footer-wrapper">
+  <!-- <div class="whats-app-icon hide-on-mobile d-none d-lg-block">
+      <a class="nav-link whats-app" href="https://web.whatsapp.com/send?phone=+919887779123&text=<?php echo Request::fullUrl(); ?>" 
+      target="_blank">
+		<img src="<?php echo url('/'); ?>/static/images/whatsapp.png" width="60" alt="WhatsApp"/>
+		<span>Chat with Us</span>
+	  </a>
+  </div>-->
+      <div class="container-fluid">
+         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 padding-0">
+            <div class="footer-grid--wrap">
+               <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                  <div class="footer-about--wrap">
+                     <div class="footer-title--wrap">
+                        <h3>About Vaibhav</h3>
+                     </div>
+                     <div class="footer-about--text">
+                        <p>Spread over a sprawling 15,000 square feet facility spanning 3 floors & spread over 2 locations, Vaibhav Stores is the largest one stop shop for salon furniture, beauty products & equipments in Bengaluru. Synonymous with authentic products, courteous & well informed sales professionals, & uncompromisable quality, Vaibhav Stores is the true hallmark of our company’s ambitions.</p>
+						<h6>A unit of</h6>
+                        <a href="http://28southventures.com/" target="_blank"><img src="<?php echo url('/'); ?>/static/images/28sv-logo.png" alt="28 South Ventures LLP" width="190"></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                  <div class="footer-about--wrap">
+                     <div class="footer-title--wrap">
+                        <h3>Business Verticals</h3>
+                     </div>
+                     <div class="footer-links--wrap">
+                        <ul>
+                           <li><a href="{{url('/') }}">Vaibhav Stores</a></li>
+                           <li><a href="{{url('/care') }}">Vaibhav Care</a></li>
+                           <li><a href="{{url('/academy') }}">Vaibhav Academy</a></li>
+                           <li><a href="{{url('/xpress') }}">Vaibhav Xpress</a></li>
+                           <li><a href="{{url('/plus') }}">Vaibhav Plus</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-xl-2">
+                  <div class="footer-about--wrap">
+                     <div class="footer-title--wrap">
+                        <h3>Quick Links</h3>
+                     </div>
+                     <div class="footer-links--wrap">
+                        <ul>
+							<li><a href="{{url('/brands') }}">Brands</a></li>
+							<li><a href="{{url('/v/offers') }}">Offers</a></li>
+							<li><a href="{{url('/v/about-us') }}">About</a></li>
+							<li><a href="{{url('/v/contact-us') }}">Contact Us</a></li>
+                            @foreach ($headerCategories as $headerCategory)
+                                <li>
+                                  <a href="{{route('products.category-list',[$headerCategory->slug])}}">
+                                     {{$headerCategory->name}}
+                                  </a>
+                                </li>
+                            @endforeach
+							<li><a href="{{url('/v/terms-and-conditions') }}">Terms & Conditions</a></li>
+							<li><a href="{{url('/blogs') }}">Blogs</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                  <div class="footer-about--wrap">
+                     <div class="footer-title--wrap">
+                        <h3>Newsletter</h3>
+                     </div>
+                     <div class="footer-subscribe--wrap">
+                        <p>Subscribe to receive updates, access to exclusive deals and more.</p>
+                        <p style="display:none; color:#000;" id="subscribe-message" class="alert alert-success" role="alert"></p>
+                        <form method="get" id="enquiry_subscribe" action="#">
+                           <input style="color:#fff" type="email" id="subscribe_email" name="email" placeholder="Enter your email address">
+                           <input type="submit" name="submit" class="addToEnquiry" value="SUBSCRIBE">
+                        </form>
+                     </div>
+                     <div class="footer-social--wrap">
+                        <ul>
+                           <li><a href="https://www.facebook.com/vaibhavstores.in" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="https://www.instagram.com/vaibhavstores/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                           <li><a href="https://in.pinterest.com/vaibhavstores/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                           <li><a href="https://www.youtube.com/channel/UCmmEZN3IKueozmKURAF-BxA?" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-copyright--wrap">
+            	28 SOUTH VENTURES LLP - ALL RIGHTS RESERVED 
+            </div>
+         </div>
+      </div>
+
+   </footer>
+
+   <!-- Javascript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+   <script src="<?php echo url('/'); ?>/static/js/rater.js"></script>
+
+   @yield ('footer-script')
+
+   <script src="<?php echo url('/'); ?>/static/js/custom.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script>
+      var submitEnquiry = 0;
+        $( "#search-form" ).validate({
+            rules: {
+                search: {
+                    required: !0
+                }
+            }
+        });
+        $( "#enquiry_subscribe" ).validate({
+            rules: {
+                email: {
+                    required: !0
+                }
+            }
+        });
+        $( "#queryForm" ).validate({
+            rules: {
+                query_email: {
+                    required: !0
+                },
+                query_mobile: {
+                  required: !0,
+                   minlength:10,
+                  maxlength:10,
+                  number: !0
+                }
+            }
+        });
+
+    </script>
+   <script>
+        $( function() {
+            $( "#search-submit" ).on('click',function(e){
+                e.preventDefault();
+
+                var url = '{{ route("products.search", ":id") }}';
+                var search = $('.typeahead').val();
+                if(search != '')
+                {
+                    url = url.replace(':id', search);
+                    window.location.href = url;
+                }
+
+            });
+
+            $.widget( "custom.catcomplete", $.ui.autocomplete, {
+                _create: function() {
+                    this._super();
+                    this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+                },
+                _renderMenu: function( ul, items ) {
+                    var that = this,
+                    currentCategory = "";
+                    $.each( items, function( index, item ) {
+                    var li;
+
+                    li = that._renderItemData( ul, item );
+
+                    if ( item.category ) {
+                            li.addClass("ui-category");
+                    }
+                    if ( item.subcategory ) {
+                            li.addClass("ui-subcategory");
+                    }
+                    });
+                }
+            });
+            $( ".typeahead" ).catcomplete({
+                    delay: 0,
+                source: function (query, process) {
+                    var url = '{{ route("advanceSearch", ":id") }}';
+                    url = url.replace(':id', query.term);
+                    jQuery.ajax({
+                        url : url,
+                        type : 'get',
+                        dataType : 'json',
+                        success : function(data) {
+                            return process(data);
+                        }
+                    });
+                },
+                select: function(e, ui) {
+                    window.location.href = ui.item.url;
+                }
+            });
+
+            $( ".typeaheadblog" ).catcomplete({
+                    delay: 0,
+                source: function (query, process) {
+                    var url = '{{ route("advanceBlogSearch", ":id") }}';
+                    url = url.replace(':id', query.term);
+                    jQuery.ajax({
+                        url : url,
+                        type : 'get',
+                        dataType : 'json',
+                        success : function(data) {
+                            return process(data);
+                        }
+                    });
+                },
+                select: function(e, ui) {
+                    window.location.href = ui.item.url;
+                }
+            });
+        });
+
+        jQuery(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $(document).on('click','.addToEnquiry',function(e){
+                e.preventDefault();
+                var email = $('#subscribe_email').val();
+                if(email != "")
+                {
+                    $('.addToEnquiry').attr('disabled', true);
+                    $('.addToEnquiry').attr('value','Subscribing...');
+                    $.ajax({
+                        type:'POST',
+                        url:"{{ route('enquiry.store') }}",
+                        data:{email:email, enquiry_type:'Subscribe Email'},
+                        success:function(data){
+                            $('.addToEnquiry').attr('disabled', false);
+                            $('.addToEnquiry').attr('value','SUBSCRIBE');
+                            $('#subscribe_email').val('');
+                            $('#subscribe-message').show();
+                            setTimeout(function(){ $('#subscribe-message').hide(); }, 5000);
+                            $('#subscribe-message').html(data);
+                        }
+                    });
+                }
+
+            });
+
+            var query_product_id = 0;
+            var query_category_slug = "";
+            var enquiry_type = "";
+            $(document).on('click', '.open-enquery-modal', function(e){
+                $('#enquiry-result').hide();
+                $('#enquiry-error').hide();
+                $('#add-query').modal({
+                    show: true
+                });
+                query_product_id = $(this).attr('product_id');
+                query_category_slug = $(this).attr('category_slug');
+                enquiry_type = $(this).attr('enquiry_type');
+            });
+
+            $(document).on('click','.queryToEnquiry',function(e){
+                e.preventDefault();
+                var product_id = query_product_id;
+                var name = $('#query-name').val();
+                var email = $('#query-email').val();
+                var mobile_no = $('#query-mobile').val();
+                var enquiry_message = $('#query-message').val();
+                if(name != "" && email != "" && mobile_no != "" && enquiry_message != "")
+                {
+                  if(mobile_no.length === 10){
+                    $('.queryToEnquiry').attr('disabled', true);
+                    $('.queryToEnquiry').text('Sending...');
+                    $.ajax({
+                        type:'POST',
+                        url:"{{ route('enquiry.store') }}",
+                        data:{product_id:product_id, name:name, email:email, mobile_no:mobile_no, enquiry_message:enquiry_message, enquiry_type:enquiry_type, query_category_slug:query_category_slug},
+                        success:function(data){
+                            $('#queryForm').hide();
+                            $('#enquiry-result').show();
+                            // $('.queryToEnquiry').attr('disabled', false);
+                            // $('.queryToEnquiry').text('Send Enquiry');
+                            $('#enquiry-result').find('p').html(data);
+                            // $('#add-query').animate({ scrollTop:180},'slow');
+                            setTimeout(function(){
+                                //  $('#enquiry-result').hide();
+                                if(enquiry_type == 'brand'){
+                                    let red_url = '{{ route("brand.detail", ":brand") }}';
+                                    red_url = red_url.replace(':brand', query_category_slug);
+                                    window.location = red_url;
+                                }
+                                else{
+                                    window.location = "/"+query_category_slug;
+                                }
+                            }, 3000);
+                            // $("#queryForm").trigger("reset");
+                        }
+                    });
+                  }
+                }
+                else
+                {
+                    $('#enquiry-error').show();
+                    setTimeout(function(){ $('#enquiry-error').hide(); }, 5000);
+                    $('#add-query').animate({ scrollTop:180},'slow');
+                }
+            });
+            $(document).on('submit','.ItemAddToCart',function(e){
+                e.preventDefault();
+                var url = $(this).attr('action');
+                var product_id = $(this).attr('product_id');
+                $.ajax({
+                    type:'POST',
+                    url:url,
+                    data:{product_id:product_id},
+                    success:function(data){
+                        $('.cartItemMessage >p').html(data);
+                        $('.cartItemMessage').show();
+                        setTimeout(function(){ $('.cartItemMessage').hide(); }, 3000);
+                    },
+                    complete: function (data) {
+                        $.ajax({
+                            type:'get',
+                            url:"{{ route('getCookie') }}",
+                            success:function(data){
+                                $('.cartItem').text(data);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+  </body>
+</html>

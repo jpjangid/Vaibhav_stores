@@ -1,6 +1,22 @@
 @extends ('layouts.front')
 
-
+@section('header-style')
+<style>
+   @media screen and (max-width: 600px) {
+      #web_image {
+         display: none;
+      };
+      .ecommerce-item--details {
+         padding-top: 0px !important;
+      }
+   }
+   @media screen and (max-width: 600px) {
+      .ecommerce-item--details {
+         padding-top: 0px !important;
+      }
+   }
+</style>
+@endsection
 @section ('content')
 <!-- Need to move into css file -->
     <style>
@@ -65,7 +81,7 @@ if($cat_id==1){
                  @else
                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 padding-0">
                     @foreach ($product->productImages as $item)
-                     <div class="no-thumb-carousel">
+                     <div class="no-thumb-carousel" id="web_image">
                         <div class="item">
                             <img src="{{ asset('storage/product/'.$item->image) }}" alt="{{$product->name}}"/>
                         </div>
@@ -129,11 +145,13 @@ if($cat_id==1){
                         </div>
                         <div class="ecommerce-item--buttons">
                             <ul>
+                              @if($product->category->name != 'Furnitures')
                                 <li>
                                     {{-- <input type="hidden" name="product_id"  value="{{$product->id}}"> --}}
                                     <button type="submit">Add To Cart</button>
                                 </li>
-                            <li><button type="button" class="open-enquery-modal" product_id="{{$product->id}}" category_slug="{{$product->category->slug}}" enquiry_type="{{$enquiry_type}}">Enquire Now</button></li>
+                              @endif
+                              <li><button type="button" class="open-enquery-modal" product_id="{{$product->id}}" category_slug="{{$product->category->slug}}" enquiry_type="{{$enquiry_type}}">Enquire Now</button></li>
                             </ul>
                         </div>
                     </form>
@@ -321,16 +339,16 @@ if($cat_id==1){
                          </div>
                          <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($product->avgRating != null)
-                                {
-                                    $stars = $product->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px;font-size: 14px;"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($product->avgRating != null)
+                              //   {
+                              //       $stars = $product->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px;font-size: 14px;"></span>';
+                              //   }
                             ?>
                         </div>
                       </div>

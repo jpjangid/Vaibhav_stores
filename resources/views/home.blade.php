@@ -104,16 +104,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($furnitureProduct1->avgRating != null)
-                                {
-                                    $stars = $furnitureProduct1->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($furnitureProduct1->avgRating != null)
+                              //   {
+                              //       $stars = $furnitureProduct1->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -159,16 +159,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($furnitureProduct2->avgRating != null)
-                                {
-                                    $stars = $furnitureProduct2->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($furnitureProduct2->avgRating != null)
+                              //   {
+                              //       $stars = $furnitureProduct2->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -214,16 +214,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($furnitureProduct3->avgRating != null)
-                                {
-                                    $stars = $furnitureProduct3->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($furnitureProduct3->avgRating != null)
+                              //   {
+                              //       $stars = $furnitureProduct3->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -269,16 +269,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($furnitureProduct4->avgRating != null)
-                                {
-                                    $stars = $furnitureProduct4->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($furnitureProduct4->avgRating != null)
+                              //   {
+                              //       $stars = $furnitureProduct4->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -373,16 +373,16 @@
                            </div>
                            <div style="direction:ltr;">
                                   <?php
-                                      $stars = 0;
-                                      if ($consumablesProduct->avgRating != null)
-                                      {
-                                          $stars = $consumablesProduct->avgRating->rating;
-                                      }
-                                      for ($i=1; $i <= 5 ; $i++) {
-                                          if ($i<=$stars) $checked = "checked";
-                                          else $checked = "";
-                                          echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                      }
+                                    //   $stars = 0;
+                                    //   if ($consumablesProduct->avgRating != null)
+                                    //   {
+                                    //       $stars = $consumablesProduct->avgRating->rating;
+                                    //   }
+                                    //   for ($i=1; $i <= 5 ; $i++) {
+                                    //       if ($i<=$stars) $checked = "checked";
+                                    //       else $checked = "";
+                                    //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                                    //   }
                                   ?>
                               </div>
                            <div class="ecommerce-item--buttons">
@@ -452,16 +452,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($electricalsProduct1->avgRating != null)
-                                {
-                                    $stars = $electricalsProduct1->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($electricalsProduct1->avgRating != null)
+                              //   {
+                              //       $stars = $electricalsProduct1->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -508,16 +508,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($electricalsProduct2->avgRating != null)
-                                {
-                                    $stars = $electricalsProduct2->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($electricalsProduct2->avgRating != null)
+                              //   {
+                              //       $stars = $electricalsProduct2->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -567,16 +567,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($electricalsProduct2->avgRating != null)
-                                {
-                                    $stars = $electricalsProduct2->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($electricalsProduct2->avgRating != null)
+                              //   {
+                              //       $stars = $electricalsProduct2->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">
@@ -620,16 +620,16 @@
                         </div>
                         <div style="direction:ltr;">
                             <?php
-                                $stars = 0;
-                                if ($electricalsProduct4->avgRating != null)
-                                {
-                                    $stars = $electricalsProduct4->avgRating->rating;
-                                }
-                                for ($i=1; $i <= 5 ; $i++) {
-                                    if ($i<=$stars) $checked = "checked";
-                                    else $checked = "";
-                                    echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
-                                }
+                              //   $stars = 0;
+                              //   if ($electricalsProduct4->avgRating != null)
+                              //   {
+                              //       $stars = $electricalsProduct4->avgRating->rating;
+                              //   }
+                              //   for ($i=1; $i <= 5 ; $i++) {
+                              //       if ($i<=$stars) $checked = "checked";
+                              //       else $checked = "";
+                              //       echo '<span class="fa fa-star '.$checked.'" style="margin-right: 8px"></span>';
+                              //   }
                             ?>
                         </div>
                         <div class="ecommerce-item--buttons">

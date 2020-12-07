@@ -13,7 +13,7 @@
                 <div class="billing-address--block">
                     <h4 class="mb-3">Billing Address</h4>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="name">Name*</label>
                                 <input type="text" class="form-control" id="bill_name" name="bill_name" placeholder="" value="" required>
@@ -23,13 +23,23 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="email">Email*</label>
+                                <input type="text" class="form-control" id="bill_email" name="bill_email" placeholder="" value="{{ auth()->user()->email }}" required>
+                                <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="col-md-6">
+
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="mobileno">Mobile No.*</label>
-                                <input type="text" class="form-control" id="bill_mobile" name="bill_mobile" placeholder="" required>
+                                <input type="text" class="form-control" id="bill_mobile" name="bill_mobile" value="" placeholder="" required>
                                     <div class="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
+                                    Please enter a valid mobile no.
                                     </div>
                             </div>
                         </div>
@@ -78,7 +88,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="landmark">Landmark</label>
-                                <input type="text" class="form-control" id="bill_landmark" name="bill_landmark" placeholder="" required>
+                                <input type="text" class="form-control" id="bill_landmark" name="bill_landmark" placeholder="">
                                 <div class="invalid-feedback">
                                     Please enter your landmark.
                                 </div>
@@ -158,10 +168,10 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="landmark">Landmark</label>
-                                    <input type="text" class="form-control" id="ship_landmark" name="ship_landmark" placeholder="" required>
-                                    <div class="invalid-feedback">
+                                    <input type="text" class="form-control" id="ship_landmark" name="ship_landmark">
+                                    <!-- <div class="invalid-feedback">
                                         Please enter your landmark.
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -177,9 +187,9 @@
                     <div class="p-4">
                         <ul class="list-unstyled mb-4">
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total Items</strong><strong>{{ $totalItems }}</strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>0.00</strong></li>
-                           <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Sub Total</strong><strong>{{ $subtotal }}</strong></li>
-                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>{{ $totalgst }}</strong></li>
+                            <li class="justify-content-between py-3 border-bottom" hidden><strong class="text-muted">Shipping and handling</strong><strong>0.00</strong></li>
+                           <li class="justify-content-between py-3 border-bottom" hidden><strong class="text-muted">Sub Total</strong><strong>{{ $subtotal }}</strong></li>
+                             <li class="justify-content-between py-3 border-bottom" hidden><strong class="text-muted">Tax</strong><strong>{{ $totalgst }}</strong></li>
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Total</strong>
                             <h5 class="font-weight-bold">{{ $totalAmount }}</h5>
                             </li>

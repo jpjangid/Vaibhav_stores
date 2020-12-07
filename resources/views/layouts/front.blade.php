@@ -16,12 +16,34 @@
       <link href="<?php echo url('/'); ?>/static/css/primary-style.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
       <style>
+      @media screen and (max-width: 600px) {
+        .cartItemMessage {
+            position: fixed;
+            max-width: 480px;
+            background: #2f2f2f;
+            color: #ffffff;
+            text-align: center;
+            top: 5%;
+            left: 42%;
+            z-index: 999999 !important;
+            border-radius: 50px;
+            display: none;  
+            left: 50%;
+            margin-left: -155px; // 1/2 width
+        .cartItemMessage p {
+            padding: 3px 12px;
+            margin-bottom: 3px;
+            top: calc(50% - 25px); // half of width
+            left: calc(50% - 50px); // half of height
+        }
+      }
+    }
 		@media (min-width: 992px)
 		.d-lg-block {
 		display: block!important;
 		}
 		.whats-app-icon.d-lg-block .nav-link {
-		padding: 0;
+		padding: 0px 0px 80px 0px;
 		right: 20px;
 		}
 		.whats-app-icon .nav-link {
@@ -32,7 +54,7 @@
 		}
 		.nav-link {
 		display: block;
-
+            
 		}
 		
 	.whats-app-icon.d-lg-block .nav-link img {
@@ -105,7 +127,7 @@
 
         </style>
       @yield ('header-style')
-      <title>{{$page_title}}</title>
+      <title>Vaibhav - A Unit of 28 South Ventures</title>
 	  <meta name="description" content="{{@$meta_description}}">
 	  <meta name="keywords" content="{{@$meta_keyword}}">
       <link rel="shortcut icon" href="<?php echo url('/'); ?>/static/images/favicon.ico" type="image/x-icon">
@@ -123,7 +145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 		
     </head>
-<body class="{{$body_class}}">
+<body class="page_not_found">
 <?php
     use \App\Http\Controllers\HomeController;
 
@@ -265,7 +287,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          </div>
       </div>
    </header>
-   <div class="cartItemMessage"><p></p></div>
+   <div class="cartItemMessage"><p style="width:300px;padding:10px;font-weight: bold;font-size: large;"></p></div>
    @yield ('content')
    <!-- Modal for Add To Query -->
    <div class="modal fade" id="add-query" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -400,7 +422,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
          </div>
       </div>
-
+      <div class="whats-app-icon hide-on-mobile d-none d-lg-block">
+      <a class="nav-link whats-app" href="https://web.whatsapp.com/send?phone=+916366008800&text=<?php echo Request::fullUrl(); ?>" 
+      target="_blank">
+		<img src="<?php echo url('/'); ?>/static/images/whatsapp.png" width="60" alt="WhatsApp"/>
+		
+	  </a>
+</div>
+<div class="whats-app-icon show-on-mobile d-block d-lg-none">
+      <a class="nav-link whats-app" href="https://wa.me/916366008800?text=<?php echo Request::fullUrl(); ?>" 
+      target="_blank"><img src="<?php echo url('/'); ?>/static/images/whatsapp.png" width="50" alt="WhatsApp"/></a>
+</div>
    </footer>
 
    <!-- Javascript -->
@@ -409,8 +441,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
    <script src="<?php echo url('/'); ?>/static/js/rater.js"></script>
 
-   @yield ('footer-script')
-
+   @yield ('footer-script');
+   <script>
+	    var botmanWidget = {
+            title: 'Vaibhav Stores',
+	        aboutText: '',
+            bubbleAvatarUrl: "<?php echo url('/'); ?>/chatbotimg/chatbot2.png",
+            headerTextColor: '#fff',
+            mainColor: '#1ac6ff',
+	        introMessage: "✋ Hi! I'm form Vaibhav Stores"
+	    };
+    </script>
+   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
    <script src="<?php echo url('/'); ?>/static/js/custom.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
